@@ -12,7 +12,7 @@ public class RentalUIActivator implements BundleActivator {
 	}
 
 	/*
-	 * (non-Javadoc)
+	 * (non-Javadoc)ef
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
