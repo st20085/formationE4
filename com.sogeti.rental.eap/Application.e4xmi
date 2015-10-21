@@ -6,7 +6,7 @@
         <children xsi:type="basic:Part" xmi:id="_Z2NMMHfNEeWh5ZT84-1hyg" elementId="com.sogeti.rental.eap.part.rentalproperty" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.views.RentalPropertyPart" label="Rental Property" iconURI="platform:/plugin/com.sogeti.rental.eap/icons/sample.png"/>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_gMyQwHfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.partstack.1">
-        <children xsi:type="basic:Part" xmi:id="_iBr84HfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.part.samplepart" contributionURI="bundleclass://com.sogeti.rental.eap/com.sogeti.rental.eap.parts.SamplePart" label="SamplePart"/>
+        <children xsi:type="basic:Part" xmi:id="_iBr84HfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.part.samplepart" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.views.RentalAgencyViewPart" label="Rental Agency View"/>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
