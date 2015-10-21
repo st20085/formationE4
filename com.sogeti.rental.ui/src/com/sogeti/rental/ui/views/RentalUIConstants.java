@@ -15,7 +15,7 @@ public interface RentalUIConstants
   public static final String ICON_RENTAL_OBJECTS = "icons/RentalObjects.png";
   public static final String ICON_AGENCY = "icons/Agency.png";
   
-  public static final String RENTAL_UI_IMGREGISTRY = "imageRegistry";
+  public static final String RENTAL_UI_IMGREGISTRY = "rentalUI_ImageRegistry";
   
   
   

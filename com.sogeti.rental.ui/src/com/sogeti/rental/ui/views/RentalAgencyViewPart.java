@@ -3,8 +3,11 @@ package com.sogeti.rental.ui.views;
 import java.util.Collections;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -19,9 +22,13 @@ import org.eclipse.swt.widgets.Tree;
 import com.opcoach.training.rental.RentalAgency;
 import com.sogeti.rental.ui.RentalUIActivator;
 
-public class RentalAgencyViewPart//extends ViewPart implements RentalUIConstants
+public class RentalAgencyViewPart implements RentalUIConstants
 {
   TreeViewer rentalTreeViewer;
+  
+	@Inject @Named(RENTAL_UI_IMGREGISTRY)
+	ImageRegistry localImageRegistry;
+
 
   public RentalAgencyViewPart()
   {
@@ -75,7 +82,7 @@ public class RentalAgencyViewPart//extends ViewPart implements RentalUIConstants
     Tree tree = rentalTreeViewer.getTree();
     tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
-    RentalProvider rentalProvider = new RentalProvider();
+    RentalProvider rentalProvider = new RentalProvider(localImageRegistry);
     rentalTreeViewer.setContentProvider(rentalProvider);
     rentalTreeViewer.setLabelProvider(rentalProvider);
 

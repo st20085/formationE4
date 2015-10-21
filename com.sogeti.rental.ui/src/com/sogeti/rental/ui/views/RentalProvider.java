@@ -20,17 +20,15 @@ import com.opcoach.training.rental.RentalObject;
  * La classe <b>RentalProvider</b>.<br>
  */
 public class RentalProvider extends LabelProvider implements ITreeContentProvider, RentalUIConstants {
-	
-	
-	@Inject @Named(RENTAL_UI_IMGREGISTRY)
+
 	ImageRegistry localImageRegistry;
-	
+
 	/**
 	 * Constructor
 	 * 
 	 */
-	public RentalProvider() {
-
+	public RentalProvider(ImageRegistry localImageRegistry) {
+		this.localImageRegistry = localImageRegistry;
 	}
 
 	public String getText(Object element) {
@@ -233,25 +231,20 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		// return null;
 		// }
 		//
-		// /**
-		// * @return
-		// */
-		// public Image getImage()
-		// {
-		// switch(name)
-		// {
-		// case CUSTOMERS:
-		// return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
-		// case RENTALS:
-		// return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
-		// case OBJECT_RENTALS:
-		// return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
-		// }
-		// return null;
-		// }
+		/**
+		 * @return
+		 */
+		public Image getImage() {
+			switch (name) {
+			case CUSTOMERS:
+				return localImageRegistry.get(ICON_CUSTOMERS);
+			case RENTALS:
+				return localImageRegistry.get(ICON_RENTALS);
+			case OBJECT_RENTALS:
+				return localImageRegistry.get(ICON_RENTAL_OBJECTS);
+			}
+			return null;
+		}
 		//
 		// private RentalProvider getOuterType()
 		// {
@@ -337,26 +330,42 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return localImageRegistry.get(ICON_AGENCY);
 		}
 
-//		if (element instanceof Node) {
-//			Node node = (Node) element;
-//			return node.getImage();
-//		}
+		if (element instanceof Node) {
+			Node node = (Node) element;
+			return node.getImage();
+		}
 
-//		// if (element instanceof Customer)
-//		// {
-//		// return
-//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
-//		// }
-//		// if (element instanceof Rental)
-//		// {
-//		// return
-//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
-//		// }
-//		// if (element instanceof RentalObject)
-//		// {
-//		// return
-//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
-//		// }
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		// // if (element instanceof Customer)
+		// // {
+		// // return
+		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
+		// // }
+		// // if (element instanceof Rental)
+		// // {
+		// // return
+		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
+		// // }
+		// // if (element instanceof RentalObject)
+		// // {
+		// // return
+		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
+		// // }
 		return super.getImage(element);
 	}
 
