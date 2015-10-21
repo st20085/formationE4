@@ -1,22 +1,30 @@
 package com.sogeti.rental.ui.views;
 
-import java.util.*;
 import java.util.List;
 
-import org.eclipse.jface.resource.*;
-import org.eclipse.jface.util.*;
-import org.eclipse.jface.viewers.*;
-import org.eclipse.swt.*;
-import org.eclipse.swt.graphics.*;
-import org.eclipse.swt.widgets.*;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-import com.opcoach.training.rental.*;
-import com.sogeti.rental.ui.*;
+import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.graphics.Image;
+
+import com.opcoach.training.rental.Customer;
+import com.opcoach.training.rental.Rental;
+import com.opcoach.training.rental.RentalAgency;
+import com.opcoach.training.rental.RentalObject;
 
 /**
  * La classe <b>RentalProvider</b>.<br>
  */
 public class RentalProvider extends LabelProvider implements ITreeContentProvider, RentalUIConstants {
+	
+	
+	@Inject @Named(RENTAL_UI_IMGREGISTRY)
+	ImageRegistry localImageRegistry;
+	
 	/**
 	 * Constructor
 	 * 
@@ -122,6 +130,11 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 		return false;
 	}
 
+	/**
+	 * 
+	 * @author clagarde
+	 *
+	 */
 	public class Node {
 		/*
 		 * @see java.lang.Object#hashCode()
@@ -315,40 +328,36 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	// return null;
 	// }
 	//
-	// /*
-	// * @see org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
-	// */
-	// @Override
-	// public Image getImage(Object element)
-	// {
-	// if (element instanceof RentalAgency)
-	// {
-	// return
-	// RentalUIActivator.getDefault().getImageRegistry().get(ICON_AGENCY);
-	// }
-	//
-	// if (element instanceof Node)
-	// {
-	// Node node = (Node) element;
-	// return node.getImage();
-	// }
-	//
-	//// if (element instanceof Customer)
-	//// {
-	//// return
-	// RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
-	//// }
-	//// if (element instanceof Rental)
-	//// {
-	//// return
-	// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
-	//// }
-	//// if (element instanceof RentalObject)
-	//// {
-	//// return
-	// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
-	//// }
-	// return super.getImage(element);
-	// }
+	/*
+	 * @see org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
+	 */
+	@Override
+	public Image getImage(Object element) {
+		if (element instanceof RentalAgency) {
+			return localImageRegistry.get(ICON_AGENCY);
+		}
+
+//		if (element instanceof Node) {
+//			Node node = (Node) element;
+//			return node.getImage();
+//		}
+
+//		// if (element instanceof Customer)
+//		// {
+//		// return
+//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
+//		// }
+//		// if (element instanceof Rental)
+//		// {
+//		// return
+//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
+//		// }
+//		// if (element instanceof RentalObject)
+//		// {
+//		// return
+//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
+//		// }
+		return super.getImage(element);
+	}
 
 }
