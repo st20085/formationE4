@@ -5,11 +5,19 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.jface.resource.ColorRegistry;
 import org.eclipse.jface.resource.ImageRegistry;
+import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.jface.resource.StringConverter;
+import org.eclipse.jface.viewers.IColorProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.Viewer;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.Image;
+import org.eclipse.swt.widgets.Display;
 
 import com.opcoach.training.rental.Customer;
 import com.opcoach.training.rental.Rental;
@@ -19,12 +27,15 @@ import com.opcoach.training.rental.RentalObject;
 /**
  * La classe <b>RentalProvider</b>.<br>
  */
-public class RentalProvider extends LabelProvider implements ITreeContentProvider, RentalUIConstants {
-	
-	
-	@Inject @Named(RENTAL_UI_IMGREGISTRY)
+public class RentalProvider extends LabelProvider implements ITreeContentProvider, RentalUIConstants, IColorProvider {
+
+	@Inject
+	@Named(RENTAL_UI_IMGREGISTRY)
 	ImageRegistry localImageRegistry;
-	
+
+	@Inject
+	IPreferenceStore preferenceStore;
+
 	/**
 	 * Constructor
 	 * 
@@ -216,42 +227,39 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return name;
 		}
 
-		// /**
-		// * @return
-		// */
-		// public Color getForeground()
-		// {
-		// switch(name)
-		// {
-		// case CUSTOMERS:
-		// return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_RED);
-		// case RENTALS:
-		// return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
-		// case OBJECT_RENTALS:
-		// return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_BLUE);
-		// }
-		// return null;
-		// }
+		/**
+		 * @return
+		 */
+		public Color getForeground() {
+			switch (name) {
+			case CUSTOMERS:
+				return getAColor(preferenceStore.getString(PREF_CUSTOMERS_COLOR));
+//				return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_RED);
+			case RENTALS:
+				return getAColor(preferenceStore.getString(PREF_RENTAL_COLOR));
+//				return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_GREEN);
+			case OBJECT_RENTALS:
+				return getAColor(preferenceStore.getString(PREF_OBJECTS_COLOR));
+//				return Display.getCurrent().getSystemColor(SWT.COLOR_DARK_BLUE);
+			}
+			return null;
+		}
+
 		//
-		// /**
-		// * @return
-		// */
-		// public Image getImage()
-		// {
-		// switch(name)
-		// {
-		// case CUSTOMERS:
-		// return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
-		// case RENTALS:
-		// return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
-		// case OBJECT_RENTALS:
-		// return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
-		// }
-		// return null;
-		// }
+		/**
+		 * @return
+		 */
+		public Image getImage() {
+			switch (name) {
+			case CUSTOMERS:
+				return localImageRegistry.get(ICON_CUSTOMERS);
+			case RENTALS:
+				return localImageRegistry.get(ICON_RENTALS);
+			case OBJECT_RENTALS:
+				return localImageRegistry.get(ICON_RENTAL_OBJECTS);
+			}
+			return null;
+		}
 		//
 		// private RentalProvider getOuterType()
 		// {
@@ -264,69 +272,64 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	 * @see
 	 * org.eclipse.jface.viewers.IColorProvider#getForeground(java.lang.Object)
 	 */
-	// @Override
-	// public Color getForeground(Object element)
-	// {
-	// String paletteName =
-	// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
-	// Palette palette =
-	// RentalUIActivator.getDefault().getPaletteManager().get(paletteName);
-	//
-	// return palette.getColorProvider().getForeground(element);
-	//
-	//
-	//// if (element instanceof Node)
-	//// {
-	//// Node node = (Node) element;
-	//// return node.getForeground();
-	//// }
-	//// if (element instanceof Customer)
-	//// {
-	//// String textColor =
-	// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_CUSTOMERS_COLOR);
-	//// return getAColor(textColor);
-	////// return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
-	//// }
-	//// if (element instanceof Rental)
-	//// {
-	//// String textColor =
-	// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_COLOR);
-	//// return getAColor(textColor);
-	////// return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
-	//// }
-	//// if (element instanceof RentalObject)
-	//// {
-	//// String textColor =
-	// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_OBJECTS_COLOR);
-	//// return getAColor(textColor);
-	////// return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
-	//// }
-	//// return null;
-	// }
-	//
-	// private Color getAColor(String rgbKey)
-	// {
-	// ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
-	//
-	// Color color = colorRegistry.get(rgbKey);
-	// if (color == null)
-	// {
-	// colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
-	// color = colorRegistry.get(rgbKey);
-	// }
-	//
-	// return color;
-	// }
-	//
-	// /*
-	// * @see
-	// org.eclipse.jface.viewers.IColorProvider#getBackground(java.lang.Object)
-	// */
-	// @Override
-	// public Color getBackground(Object element)
-	// {
-	// return null;
-	// }
+	@Override
+	public Color getForeground(Object element) {
+		// String paletteName =
+		// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_PALETTE);
+		// Palette palette =
+		// RentalUIActivator.getDefault().getPaletteManager().get(paletteName);
+		//
+		// return palette.getColorProvider().getForeground(element);
+
+		if (element instanceof Node) {
+			Node node = (Node) element;
+			return node.getForeground();
+		}
+		// if (element instanceof Customer)
+		// {
+		// String textColor =
+		// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_CUSTOMERS_COLOR);
+		// return getAColor(textColor);
+		//// return Display.getCurrent().getSystemColor(SWT.COLOR_RED);
+		// }
+		// if (element instanceof Rental)
+		// {
+		// String textColor =
+		// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_RENTAL_COLOR);
+		// return getAColor(textColor);
+		//// return Display.getCurrent().getSystemColor(SWT.COLOR_GREEN);
+		// }
+		// if (element instanceof RentalObject)
+		// {
+		// String textColor =
+		// RentalUIActivator.getDefault().getPreferenceStore().getString(PREF_OBJECTS_COLOR);
+		// return getAColor(textColor);
+		//// return Display.getCurrent().getSystemColor(SWT.COLOR_BLUE);
+		// }
+		return null;
+	}
+
+	private Color getAColor(String rgbKey) {
+		ColorRegistry colorRegistry = JFaceResources.getColorRegistry();
+
+		Color color = colorRegistry.get(rgbKey);
+		if (color == null) {
+			colorRegistry.put(rgbKey, StringConverter.asRGB(rgbKey));
+			color = colorRegistry.get(rgbKey);
+		}
+
+		return color;
+	}
+
+	/*
+	 * @see
+	 * org.eclipse.jface.viewers.IColorProvider#getBackground(java.lang.Object)
+	 */
+	@Override
+	public Color getBackground(Object element) {
+		return null;
+	}
+
 	//
 	/*
 	 * @see org.eclipse.jface.viewers.LabelProvider#getImage(java.lang.Object)
@@ -337,27 +340,30 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return localImageRegistry.get(ICON_AGENCY);
 		}
 
-//		if (element instanceof Node) {
-//			Node node = (Node) element;
-//			return node.getImage();
-//		}
+		if (element instanceof Node) {
+			Node node = (Node) element;
+			return node.getImage();
+		}
 
-//		// if (element instanceof Customer)
-//		// {
-//		// return
-//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
-//		// }
-//		// if (element instanceof Rental)
-//		// {
-//		// return
-//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
-//		// }
-//		// if (element instanceof RentalObject)
-//		// {
-//		// return
-//		RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
-//		// }
+		// // if (element instanceof Customer)
+		// // {
+		// // return
+		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
+		// // }
+		// // if (element instanceof Rental)
+		// // {
+		// // return
+		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
+		// // }
+		// // if (element instanceof RentalObject)
+		// // {
+		// // return
+		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
+		// // }
 		return super.getImage(element);
 	}
+	
+	
+	
 
 }

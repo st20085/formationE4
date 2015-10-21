@@ -4,11 +4,18 @@ package com.sogeti.rental.ui.views;
 import java.text.SimpleDateFormat;
 
 import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.ui.di.Focus;
+import org.eclipse.e4.ui.services.IServiceConstants;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.dnd.DND;
 import org.eclipse.swt.dnd.DragSource;
+import org.eclipse.swt.dnd.DragSourceAdapter;
+import org.eclipse.swt.dnd.DragSourceEvent;
 import org.eclipse.swt.dnd.TextTransfer;
 import org.eclipse.swt.dnd.Transfer;
 import org.eclipse.swt.layout.GridData;
@@ -19,15 +26,17 @@ import org.eclipse.swt.widgets.Label;
 
 import com.opcoach.training.rental.Rental;
 import com.opcoach.training.rental.RentalAgency;
-import com.sogeti.rental.core.RentalCoreActivator;
 
-public class RentalPropertyPart {
+public class RentalPropertyPart implements RentalUIConstants{
 	public static final String VIEW_ID = "com.opcoach.rental.e4.ui.views.rentalView"; //$NON-NLS-1$
 
 	private Label rentedObjectLabel, customerNameLabel, startDateLabel, endDateLabel;
-	private Rental currentRental;
+//	private Rental currentRental;
 	private Label customerTitle;
-	// ImageRegistry reg;
+	
+	
+	@Inject @Named(RENTAL_UI_IMGREGISTRY)
+	ImageRegistry localImageRegistry;
 
 	@PostConstruct
 	public void createContent(Composite parent, RentalAgency agency)
@@ -46,24 +55,25 @@ public class RentalPropertyPart {
 		gd.horizontalAlignment = SWT.FILL;
 		rentedObjectLabel.setLayoutData(gd);
 
-//		DragSource ds = new DragSource(rentedObjectLabel, DND.DROP_COPY);
-//		ds.setTransfer(new Transfer[] { TextTransfer.getInstance() });
-		// ds.addDragListener(new DragSourceAdapter()
-		// {
-		// public void dragSetData(DragSourceEvent event)
-		// {
-		// if (TextTransfer.getInstance().isSupportedType(event.dataType))
-		// {
-		// event.data = rentedObjectLabel.getText();
-		// }
-		// }
-		//
-		// public void dragStart(DragSourceEvent event)
-		// {
-		// event.image = reg.get(RentalUIConstants.IMG_AGENCY);
-		// }
-		//
-		// });
+
+		DragSource ds = new DragSource(rentedObjectLabel, DND.DROP_COPY);
+		ds.setTransfer(new Transfer[] { TextTransfer.getInstance() });
+		ds.addDragListener(new DragSourceAdapter()
+			{
+				public void dragSetData(DragSourceEvent event)
+				{
+					if (TextTransfer.getInstance().isSupportedType(event.dataType))
+					{
+						event.data = rentedObjectLabel.getText();
+					}
+				}
+
+				public void dragStart(DragSourceEvent event)
+				{
+					event.image = localImageRegistry.get(RentalUIConstants.ICON_RENTAL_OBJECTS);
+				}
+
+			});
 
 		customerTitle = new Label(infoGroup, SWT.NONE);
 		customerTitle.setText("Client : ");
@@ -91,20 +101,18 @@ public class RentalPropertyPart {
 
 	}
 
-	// /** This method is inject and option -> not called when object is built
-	// if injection is not possible */
-	// @Inject @Optional
-	// public void setSelection(@Named(IServiceConstants.ACTIVE_SELECTION)
-	// Object o, Adapter adapter)
-	// {
-	// Rental r = adapter.adapt(o, Rental.class);
-	// setRental(r);
-	//
-	// }
+
+	 @Inject @Optional
+	 public void setSelection(@Named(IServiceConstants.ACTIVE_SELECTION) Rental rental) {
+		 setRental(rental);
+	 }
+	 
+	
 
 	public void setRental(Rental r) {
 		// currentRental = r;
-		// if (r != null)
+		 if (r == null)
+			 return;
 		// initDataBindings();
 
 		rentedObjectLabel.setText(r.getRentedObject().getName());
@@ -112,19 +120,15 @@ public class RentalPropertyPart {
 		SimpleDateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 		startDateLabel.setText(df.format(r.getStartDate()));
 		endDateLabel.setText(df.format(r.getEndDate()));
-
-		/*
-		 * if (rentedObjectLabel == null) return; // ui not created yet if (r ==
-		 * null) { rentedObjectLabel.setText("                               ");
-		 *
-		 * endDateLabel.setText("                                    "); } else
-		 * { Customer c = r.getCustomer();
-		 * customerNameLabel.setText(c.getDisplayName());
-		 * 
-		 * 
-		 */
-
 	}
+	
+	// public void setSelection(@Named(IServiceConstants.ACTIVE_SELECTION)
+		// Object o, Adapter adapter)
+		// {
+		// Rental r = adapter.adapt(o, Rental.class);
+		// setRental(r);
+		//
+		// }
 
 	@Focus
 	private void setFocus() {

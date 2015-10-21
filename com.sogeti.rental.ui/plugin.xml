@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.core.expressions.definitions">
+      <definition
+            id="com.sogeti.rental.ui.customerSelected">
+         <instanceof
+               value="com.opcoach.training.rental.Customer">
+         </instanceof>
+      </definition>
+   </extension>
+   <extension
+         point="com.opcoach.e4.preferences.e4PreferencePages">
+      <page
+            name="Colors"
+            class="com.sogeti.rental.ui.preferences.ColorPreferencePage"
+            id="com.sogeti.rental.ui.preferences.colorpage">
+      </page>
+   </extension>
+   <extension
+         id="com.sogeti.rental.ui.fragment"
+         point="org.eclipse.e4.workbench.model">
+      <fragment
+            uri="fragment.e4xmi">
+      </fragment>
+      <processor
+            apply="always"
+            beforefragment="true"
+            class="com.sogeti.rental.ui.AddMenuItemProcessor">
+      </processor>
+   </extension>
+
+</plugin>

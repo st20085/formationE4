@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ASCII"?>
+<fragment:ModelFragments xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:fragment="http://www.eclipse.org/ui/2010/UIModel/fragment" xmi:id="_RK8S0HlaEeWsINf8WSrvkA">
+  <fragments xsi:type="fragment:StringModelFragment" xmi:id="_RK854HlaEeWsINf8WSrvkA" featurename="addons" parentElementId="com.sogeti.rental.eap.application">
+    <elements xsi:type="application:Addon" xmi:id="_RK854XlaEeWsINf8WSrvkA" elementId="com.sogeti.rental.eap.rentaluiaddon" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.addons.RentalUIAddons"/>
+  </fragments>
+</fragment:ModelFragments>

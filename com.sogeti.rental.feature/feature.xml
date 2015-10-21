@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="com.sogeti.rental.feature"
+      label="Feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      licence Sogeti
+   </license>
+
+   <requires>
+      <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore" version="2.11.1" match="greaterOrEqual"/>
+      <import plugin="com.sogeti.rental.core" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jface" version="3.11.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.di"/>
+      <import plugin="org.eclipse.e4.core.services"/>
+      <import plugin="org.eclipse.e4.core.contexts"/>
+      <import plugin="org.eclipse.e4.core.di" version="1.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.ui.workbench"/>
+      <import plugin="org.eclipse.e4.ui.services"/>
+      <import plugin="org.eclipse.e4.ui.model.workbench"/>
+      <import plugin="org.eclipse.core.expressions"/>
+      <import plugin="com.opcoach.e4.preferences" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.core.di.extensions" version="0.13.0" match="greaterOrEqual"/>
+      <import plugin="javax.inject"/>
+      <import plugin="javax.annotation"/>
+      <import plugin="org.eclipse.swt"/>
+      <import plugin="com.sogeti.rental.ui" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.e4.tools.context.spy" version="0.17.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="com.sogeti.rental.core"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.sogeti.rental.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.sogeti.rental.eap"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="com.opcoach.e4.preferences"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

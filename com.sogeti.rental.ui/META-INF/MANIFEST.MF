@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Ui
-Bundle-SymbolicName: com.sogeti.rental.ui
+Bundle-SymbolicName: com.sogeti.rental.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: com.sogeti.rental.ui.RentalUIActivator
 Bundle-Vendor: SOGETI
@@ -12,7 +12,14 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.jface;bundle-version="3.11.0",
  org.eclipse.e4.ui.di,
  org.eclipse.e4.core.services,
- org.eclipse.e4.core.contexts
+ org.eclipse.e4.core.contexts,
+ org.eclipse.e4.core.di;bundle-version="1.5.0",
+ org.eclipse.e4.ui.workbench,
+ org.eclipse.e4.ui.services,
+ org.eclipse.e4.ui.model.workbench,
+ org.eclipse.core.expressions,
+ com.opcoach.e4.preferences;bundle-version="1.0.0";visibility:=reexport,
+ org.eclipse.e4.core.di.extensions;bundle-version="0.13.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: javax.annotation;version="1.0.0";resolution:=optional,
  javax.inject;version="1.0.0"

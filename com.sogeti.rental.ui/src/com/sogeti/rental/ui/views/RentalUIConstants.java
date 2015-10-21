@@ -15,7 +15,7 @@ public interface RentalUIConstants
   public static final String ICON_RENTAL_OBJECTS = "icons/RentalObjects.png";
   public static final String ICON_AGENCY = "icons/Agency.png";
   
-  public static final String RENTAL_UI_IMGREGISTRY = "imageRegistry";
+  public static final String RENTAL_UI_IMGREGISTRY = "rentalUI_ImageRegistry";
   
   
   
@@ -29,13 +29,13 @@ public interface RentalUIConstants
   
   
   
-//  public static final String PREF_CUSTOMERS_COLOR = "PREF_CUSTOMERS_COLOR";
+  public static final String PREF_CUSTOMERS_COLOR = "PREF_CUSTOMERS_COLOR";
 //  public static final String PREF_CUSTOMERS_COLOR_TEXT = "Customer";
 //  
-//  public static final String PREF_RENTAL_COLOR = "PREF_RENTAL_COLOR";
+  public static final String PREF_RENTAL_COLOR = "PREF_RENTAL_COLOR";
 //  public static final String PREF_RENTAL_COLOR_TEXT = "Rental";
 //  
-//  public static final String PREF_OBJECTS_COLOR = "PREF_OBJECTS_COLOR";
+  public static final String PREF_OBJECTS_COLOR = "PREF_OBJECTS_COLOR";
 //  public static final String PREF_OBJECTS_COLOR_TEXT = "Objects";
 //  
 //  public static final String PREF_RENTAL_COUNT = "PREF_RENTAL_COUNT";

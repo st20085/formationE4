@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmlns:ui="http://www.eclipse.org/ui/2010/UIModel/application/ui" xmi:id="_6wlLcMgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.application" bindingContexts="_6wlLecgZEeSyMNYR5xypkQ">
   <children xsi:type="basic:TrimmedWindow" xmi:id="_6wlLccgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.window.main" label="Rental Application" width="500" height="400">
     <children xsi:type="basic:PartSashContainer" xmi:id="_XH2skHfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.partsashcontainer.0" horizontal="true">
       <children xsi:type="basic:PartStack" xmi:id="_XvO1oHfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.partstack.0">
-        <children xsi:type="basic:Part" xmi:id="_Z2NMMHfNEeWh5ZT84-1hyg" elementId="com.sogeti.rental.eap.part.rentalproperty" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.views.RentalPropertyPart" label="Rental Property" iconURI="platform:/plugin/com.sogeti.rental.eap/icons/sample.png"/>
+        <children xsi:type="basic:Part" xmi:id="_Z2NMMHfNEeWh5ZT84-1hyg" elementId="com.sogeti.rental.eap.part.rentalproperty" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.views.RentalPropertyPart" label="Rental Property" iconURI="platform:/plugin/com.sogeti.rental.eap/icons/sample.png">
+          <menus xmi:id="_YLWssHi5EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.menu.printmessage" label="" iconURI="">
+            <tags>ViewMenu</tags>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_cgCN8Hi5EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledmenuitem.printmessage" label="Print Message" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+          </menus>
+        </children>
       </children>
       <children xsi:type="basic:PartStack" xmi:id="_gMyQwHfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.partstack.1">
-        <children xsi:type="basic:Part" xmi:id="_iBr84HfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.part.samplepart" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.views.RentalAgencyViewPart" label="Rental Agency View"/>
+        <children xsi:type="basic:Part" xmi:id="_iBr84HfuEeWeAeENXaoxcw" elementId="com.sogeti.rental.eap.part.samplepart" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.views.RentalAgencyViewPart" label="Rental Agency View">
+          <menus xsi:type="menu:PopupMenu" xmi:id="_0nogEHi5EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.popupmenu">
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_1cFb0Hi5EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledmenuitem.0" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_G-ctEHi_EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledmenuitem.copy" label="Copy Customer" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Customers.png" command="_AbVI4HjAEeW97o_0CwXh6w">
+              <visibleWhen xsi:type="ui:CoreExpression" xmi:id="_79H4MHi_EeW97o_0CwXh6w" coreExpressionId="com.sogeti.rental.ui.customerSelected"/>
+            </children>
+          </menus>
+          <menus xmi:id="_epCsYHi6EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.menu.agencymenu" label="Agency Menu">
+            <children xsi:type="menu:HandledMenuItem" xmi:id="_hd6nwHi6EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledmenuitem.1" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+            <children xsi:type="menu:MenuSeparator" xmi:id="_lNM88Hi6EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.menuseparator.0"/>
+            <children xsi:type="menu:Menu" xmi:id="_lq4XcHi6EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.menu.0"/>
+          </menus>
+          <toolbar xmi:id="_Ne44EHi7EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.toolbar.0">
+            <children xsi:type="menu:HandledToolItem" xmi:id="_Qi2_YHi7EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledtoolitem.0" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+          </toolbar>
+        </children>
       </children>
     </children>
     <mainMenu xmi:id="_6wlLicgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.main.menu">
@@ -14,9 +34,11 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLi8gZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handleditem.file.open" label="Open" iconURI="platform:/plugin/com.sogeti.rental.eap/icons/sample.png" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjMgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handleditem.save" label="Save" iconURI="platform:/plugin/com.sogeti.rental.eap/icons/save_edit.png" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLjcgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handleditem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_m8Z7oHi4EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledmenuitem" label="Print  Message" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_6wlLjsgZEeSyMNYR5xypkQ" elementId="help" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_6wlLj8gZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handleditem.about" label="About" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_K9OucHjNEeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledmenuitem.openagencypreferences" label="Open Agency Preferences" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_reDKwHjMEeW97o_0CwXh6w"/>
       </children>
     </mainMenu>
     <trimBars xmi:id="_6wlLlcgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.trimbar.top">
@@ -30,6 +52,9 @@
   <handlers xmi:id="_6wlLgcgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handler.openCommand" contributionURI="bundleclass://com.sogeti.rental.eap/com.sogeti.rental.eap.handlers.OpenHandler" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLhMgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handler.saveCommand" contributionURI="bundleclass://com.sogeti.rental.eap/com.sogeti.rental.eap.handlers.SaveHandler" command="_6wlLg8gZEeSyMNYR5xypkQ"/>
   <handlers xmi:id="_6wlLh8gZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.handler.aboutCommand" contributionURI="bundleclass://com.sogeti.rental.eap/com.sogeti.rental.eap.handlers.AboutHandler" command="_6wlLhsgZEeSyMNYR5xypkQ"/>
+  <handlers xmi:id="_toVdkHi3EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handler" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.handlers.MessageHandler" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+  <handlers xmi:id="_KyJLsHjAEeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handler.0" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.handlers.CopyCustomerHandler" command="_AbVI4HjAEeW97o_0CwXh6w"/>
+  <handlers xmi:id="_uDe78HjMEeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handler.1" contributionURI="bundleclass://com.opcoach.e4.preferences/com.opcoach.e4.preferences.handlers.E4PreferencesHandler" command="_reDKwHjMEeW97o_0CwXh6w"/>
   <bindingTables xmi:id="_6wlLfsgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.bindingtable" bindingContext="_6wlLecgZEeSyMNYR5xypkQ">
     <bindings xmi:id="_6wlLf8gZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.keybinding.m1q" keySequence="M1+Q" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
     <bindings xmi:id="_6wlLgsgZEeSyMNYR5xypkQ" elementId="com.sogeti.rental.eap.keybinding.m1o" keySequence="M1+O" command="_6wlLgMgZEeSyMNYR5xypkQ"/>
@@ -40,10 +65,26 @@
     <children xmi:id="_6wlLesgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="_6wlLe8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
+  <menuContributions xmi:id="_u5PvAHi7EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.menucontribution.0" positionInParent="after=additions" parentId="help">
+    <children xsi:type="menu:HandledMenuItem" xmi:id="_vU_P0Hi7EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.menucontribution" label="Print Message" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+  </menuContributions>
+  <toolBarContributions xmi:id="_GI4eYHi8EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.toolbarcontribution.0" parentId="org.eclipse.ui.main.toolbar" positionInParent="after=additions">
+    <children xsi:type="menu:ToolBarSeparator" xmi:id="_07yDwHi8EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.toolbarseparator.0"/>
+    <children xsi:type="menu:HandledToolItem" xmi:id="_GbOLkHi8EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledtoolitem.printmessage" label="Print Message" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+  </toolBarContributions>
+  <trimContributions xmi:id="_JTPFEHi9EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.trimcontribution.0" parentId="com.sogeti.rental.eap.trimbar.top">
+    <children xsi:type="menu:ToolBar" xmi:id="_KAIAQHi9EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.toolbar.1">
+      <children xsi:type="menu:HandledToolItem" xmi:id="_TVnI8Hi9EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledtoolitem.quit" label="Quit" command="_6wlLfMgZEeSyMNYR5xypkQ"/>
+      <children xsi:type="menu:HandledToolItem" xmi:id="_VwZwYHi9EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.handledtoolitem.printmessage" label="Print Message" iconURI="platform:/plugin/com.sogeti.rental.ui/icons/Agency.png" command="_YjeHMHi4EeW97o_0CwXh6w"/>
+    </children>
+  </trimContributions>
   <commands xmi:id="_6wlLfMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
   <commands xmi:id="_6wlLgMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.open" commandName="openCommand"/>
   <commands xmi:id="_6wlLg8gZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_6wlLhsgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_YjeHMHi4EeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.command" commandName="Print Message"/>
+  <commands xmi:id="_AbVI4HjAEeW97o_0CwXh6w" elementId="org.eclipse.ui.edit.copy" commandName="Copy"/>
+  <commands xmi:id="_reDKwHjMEeW97o_0CwXh6w" elementId="com.sogeti.rental.eap.command.openpreferences" commandName="Open preferences"/>
   <addons xmi:id="_6wlLcsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_6wlLc8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_6wlLdMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
@@ -51,5 +92,4 @@
   <addons xmi:id="_6wlLdsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_6wlLd8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_6wlLeMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
-  <addons xmi:id="_JVLisHf1EeWqcbDMrvI0hQ" elementId="com.sogeti.rental.eap.rentaluiaddon" contributionURI="bundleclass://com.sogeti.rental.ui/com.sogeti.rental.ui.addons.RentalUIAddons"/>
 </application:Application>

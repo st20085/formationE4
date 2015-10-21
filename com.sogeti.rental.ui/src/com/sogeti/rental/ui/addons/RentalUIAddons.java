@@ -1,17 +1,19 @@
 
 package com.sogeti.rental.ui.addons;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+
 
 import javax.annotation.PostConstruct;
 
+import org.eclipse.core.runtime.preferences.InstanceScope;
 import org.eclipse.e4.core.contexts.IEclipseContext;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.FrameworkUtil;
 
+import com.opcoach.e4.preferences.ScopedPreferenceStore;
 import com.opcoach.training.rental.RentalAgency;
 import com.opcoach.training.rental.core.helpers.RentalAgencyGenerator;
 import com.sogeti.rental.ui.views.RentalUIConstants;
@@ -22,6 +24,9 @@ public class RentalUIAddons implements RentalUIConstants {
 	public void init(IEclipseContext context) {
 		context.set(RentalAgency.class, RentalAgencyGenerator.createSampleAgency());
 		context.set(RENTAL_UI_IMGREGISTRY, getLocalImageRegistry());
+		
+		context.set(IPreferenceStore.class, new ScopedPreferenceStore(InstanceScope.INSTANCE, "com.sogeti.rental.ui"));
+		
 	}
 
 	ImageRegistry getLocalImageRegistry() {

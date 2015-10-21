@@ -16,6 +16,10 @@
                name="applicationCSS"
                value="platform:/plugin/com.sogeti.rental.eap/css/default.css">
          </property>
+         <property
+               name="appName"
+               value="com.sogeti.rental.eap">
+         </property>
       </product>
    </extension>
 
