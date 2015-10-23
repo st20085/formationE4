@@ -6,7 +6,7 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="com.sogeti.rental.eap"
+            name="Rental"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="lifeCycleURI"
@@ -18,7 +18,7 @@
          </property>
          <property
                name="appName"
-               value="com.sogeti.rental.eap">
+               value="Rental">
          </property>
       </product>
    </extension>

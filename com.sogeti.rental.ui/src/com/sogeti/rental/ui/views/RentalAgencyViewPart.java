@@ -4,6 +4,7 @@ import java.util.Collections;
 
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
+import javax.inject.Named;
 
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
@@ -12,6 +13,7 @@ import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.services.EMenuService;
 import org.eclipse.e4.ui.workbench.modeling.ESelectionService;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -29,8 +31,8 @@ public class RentalAgencyViewPart implements RentalUIConstants
 {
   TreeViewer rentalTreeViewer;
   
-//	@Inject @Named(RENTAL_UI_IMGREGISTRY)
-//	ImageRegistry localImageRegistry;
+	@Inject @Named(RENTAL_UI_IMGREGISTRY)
+	ImageRegistry localImageRegistry;
 
 
   public RentalAgencyViewPart()
@@ -86,6 +88,7 @@ public class RentalAgencyViewPart implements RentalUIConstants
     tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 
     RentalProvider rentalProvider = ContextInjectionFactory.make(RentalProvider.class, context);
+    //RentalProvider rentalProvider = new RentalProvider(localImageRegistry);
     rentalTreeViewer.setContentProvider(rentalProvider);
     rentalTreeViewer.setLabelProvider(rentalProvider);
 

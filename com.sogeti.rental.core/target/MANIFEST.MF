@@ -1,0 +1,15 @@
+Manifest-Version: 1.0
+Bundle-SymbolicName: com.sogeti.rental.core
+Export-Package: com.opcoach.training.rental,com.opcoach.training.renta
+ l.core.helpers,com.sogeti.rental.core
+Bundle-Name: Rental Core
+Bundle-Version: 1.0.0.201510231602
+Bundle-ClassPath: rental.jar,.
+Require-Bundle: org.eclipse.core.runtime,org.eclipse.emf.ecore;bundle-
+ version="2.11.1";visibility:=reexport
+Bundle-ManifestVersion: 2
+Bundle-Activator: com.sogeti.rental.core.RentalCoreActivator
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: SOGETI
+

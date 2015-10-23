@@ -40,8 +40,8 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 	 * Constructor
 	 * 
 	 */
-	public RentalProvider() {
-
+	public RentalProvider(ImageRegistry localImageRegistry) {
+		this.localImageRegistry = localImageRegistry;
 	}
 
 	public String getText(Object element) {
@@ -345,21 +345,7 @@ public class RentalProvider extends LabelProvider implements ITreeContentProvide
 			return node.getImage();
 		}
 
-		// // if (element instanceof Customer)
-		// // {
-		// // return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_CUSTOMERS);
-		// // }
-		// // if (element instanceof Rental)
-		// // {
-		// // return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTALS);
-		// // }
-		// // if (element instanceof RentalObject)
-		// // {
-		// // return
-		// RentalUIActivator.getDefault().getImageRegistry().get(ICON_RENTAL_OBJECTS);
-		// // }
+
 		return super.getImage(element);
 	}
 	

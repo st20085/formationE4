@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<units size='1'>
+  <unit id='com.sogeti.rental.core' version='1.0.0.201510231602' singleton='false'>
+    <update id='com.sogeti.rental.core' range='[0.0.0,1.0.0.201510231602)' severity='0'/>
+    <properties size='5'>
+      <property name='org.eclipse.equinox.p2.name' value='Rental Core'/>
+      <property name='org.eclipse.equinox.p2.provider' value='SOGETI'/>
+      <property name='maven-groupId' value='com.opcoach.training.e4'/>
+      <property name='maven-artifactId' value='com.sogeti.rental.core'/>
+      <property name='maven-version' value='1.0.0-SNAPSHOT'/>
+    </properties>
+    <provides size='6'>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='com.sogeti.rental.core' version='1.0.0.201510231602'/>
+      <provided namespace='osgi.bundle' name='com.sogeti.rental.core' version='1.0.0.201510231602'/>
+      <provided namespace='java.package' name='com.opcoach.training.rental' version='0.0.0'/>
+      <provided namespace='java.package' name='com.opcoach.training.rental.core.helpers' version='0.0.0'/>
+      <provided namespace='java.package' name='com.sogeti.rental.core' version='0.0.0'/>
+      <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+    </provides>
+    <requires size='2'>
+      <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+      <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='2.11.1'/>
+    </requires>
+    <artifacts size='1'>
+      <artifact classifier='osgi.bundle' id='com.sogeti.rental.core' version='1.0.0.201510231602'/>
+    </artifacts>
+    <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+    <touchpointData size='1'>
+      <instructions size='1'>
+        <instruction key='manifest'>
+          Bundle-SymbolicName: com.sogeti.rental.core&#xA;Bundle-Version: 1.0.0.201510231602&#xA;
+        </instruction>
+      </instructions>
+    </touchpointData>
+  </unit>
+</units>

@@ -2,7 +2,7 @@
 <feature
       id="com.sogeti.rental.feature"
       label="Feature"
-      version="1.0.0.qualifier">
+      version="1.0.0.201510231602">
 
    <description url="http://www.example.com/description">
       [Enter Feature Description here.]
@@ -46,30 +46,30 @@
 
    <plugin
          id="com.sogeti.rental.core"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         download-size="78"
+         install-size="85"
+         version="1.0.0.201510231602"
          unpack="false"/>
 
    <plugin
          id="com.sogeti.rental.ui"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         download-size="28"
+         install-size="42"
+         version="1.0.0.201510231602"
          unpack="false"/>
 
    <plugin
          id="com.sogeti.rental.eap"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         download-size="12"
+         install-size="25"
+         version="1.0.0.201510231602"
          unpack="false"/>
 
    <plugin
          id="com.opcoach.e4.preferences"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
+         download-size="17"
+         install-size="32"
+         version="1.0.0.201510231602"
          unpack="false"/>
 
 </feature>

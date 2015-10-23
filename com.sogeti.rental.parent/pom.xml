@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.opcoach.training.e4</groupId>
+	<artifactId>com.sogeti.rental.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<description>Parent project for the E4 build</description>
+
+
+	<properties>
+		<tycho-version>0.23.0</tycho-version>
+	</properties>
+
+	<!-- configure p2 repository to resolve against -->
+	<repositories> <repository> <id>mars</id> <layout>p2</layout> <url>http://download.eclipse.org/releases/mars/</url> 
+		</repository> </repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- enable tycho build extension -->
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<dependency-resolution>
+						<optionalDependencies>ignore</optionalDependencies>
+					</dependency-resolution>
+<!-- 					<target> -->
+<!-- 						<artifact> -->
+<!-- 							<groupId>com.opcoach.training.e4</groupId> -->
+<!-- 							<artifactId>com.opcoach.training.e4.targetplatform</artifactId> -->
+<!-- 							<version>1.0.0-SNAPSHOT</version> -->
+<!-- 						</artifact> -->
+<!-- 					</target> -->
+					<environments>
+						<environment> 
+							<os>win32</os> <ws>win32</ws> <arch>x86</arch> 
+						</environment>
+						<environment>
+							<os>macosx</os>
+							<ws>cocoa</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+
+
+		</plugins>
+	</build>
+
+	<!-- the modules that should be built together -->
+	<modules>
+		<module>../com.sogeti.rental.core</module>
+		<module>../com.sogeti.rental.ui</module>
+		<module>../../e4Preferences/com.opcoach.e4.preferences</module>
+		<module>../com.sogeti.rental.eap</module>
+		<module>../com.sogeti.rental.feature</module>
+		
+		
+		
+		
+		
+		
+		
+	</modules>
+
+
+
+</project>
